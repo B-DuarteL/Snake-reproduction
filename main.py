@@ -1,7 +1,7 @@
 import random
 import tkinter as tk
 import time
-# Di re ct io ns : ( dx , dy )
+# Directions : ( dx , dy )
 NORD = (0 , -1)
 SUD = (0 , 1)
 EST = (1 , 0)
