@@ -1,5 +1,5 @@
 import random
-import tkinter as tk
+import tkinter as tk 
 import time
 from logique import *
 # Directions : ( dx , dy )
