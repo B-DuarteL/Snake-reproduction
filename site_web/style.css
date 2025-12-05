@@ -1,0 +1,20 @@
+:root {
+  /* Couleurs principales */
+  --blue: #002147;
+  --gold: #C4A35A;
+  --cream: #dfd5bd;
+  --dark: #1E1E1E;
+  --grey: #52565E;
+  --light-grey: #F3F3F5;
+  --white: #FFFFFF;
+  --border: #D2D2D7;
+  --black: #000000;
+}
+body {
+    font-family: serif;
+}
+header {
+    font-family: "Baskerville Old Face";
+    font-variant: small-caps;
+    
+}
