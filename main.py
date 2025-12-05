@@ -1,5 +1,5 @@
 import random
-import tkinter as tk 
+import tkinter as tk
 import time
 from logique import *
 # Directions : ( dx , dy )
@@ -15,27 +15,30 @@ def init_serpent() :
 
 
 taille_case = 20  # Chaque case fait 20x20 pixels
-nombre_cases_largeur = 20  # 20 cases en largeur
+"""nombre_cases_largeur = 20  # 20 cases en largeur
 nombre_cases_hauteur = 20  # 20 cases en hauteur
-largeur_canvas = nombre_cases_largeur * taille_case  # 400 pixels width
-hauteur_canvas = nombre_cases_hauteur * taille_case  # 400 pixels height
+largeur_canvas = nombre_cases_largeur * taille_case  # 400 pixels width 
+hauteur_canvas = nombre_cases_hauteur * taille_case  # 400 pixels height 
+On peut quand même utitliser cette partie si on fait un niveau avec un taille de map différente"""
+nombre_cases = 20 #la grille étant un carré, il n'y a pas besoin de le faire pour chaque dimension
+taille_canvas = nombre_cases * taille_case # 400 pixels width
 
 def dessiner_grillage():
     """Dessine le grillage de 20x20"""
     # Lignes verticales
-    for colonne in range(0, largeur_canvas, taille_case):
-        canvas.create_line(colonne, 0, colonne, hauteur_canvas, fill='gray20')
+    for colonne in range(0, taille_canvas, taille_case):
+        canvas.create_line(colonne, 0, colonne, taille_canvas, fill='gray20')
     
     # Lignes horizontales
-    for ligne in range(0, hauteur_canvas, taille_case):
-        canvas.create_line(0, ligne, largeur_canvas, ligne, fill='gray20')
+    for ligne in range(0, taille_canvas, taille_case):
+        canvas.create_line(0, ligne, taille_canvas, ligne, fill='gray20')
 
 # ============ DÉMARRAGE DU JEU ============
 
 # Créer la fenêtre
 fenetre = tk.Tk()
 fenetre.title("Snake")
-canvas = tk.Canvas(fenetre, width=largeur_canvas, height=hauteur_canvas, bg='black')
+canvas = tk.Canvas(fenetre, width=taille_canvas, height=taille_canvas, bg='black')
 canvas.pack()
 dessiner_grillage()
 fenetre.mainloop()
