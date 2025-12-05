@@ -1,5 +1,6 @@
 import random
 import tkinter as tk
+import time
 # Di re ct io ns : ( dx , dy )
 NORD = (0 , -1)
 SUD = (0 , 1)
@@ -10,6 +11,30 @@ def init_serpent() :
     centre = 10 # Pour une grille 20 x20
     return [( centre , centre ) , ( centre -1 , centre ) , ( centre -2 , centre ) ]
 # 1. Creation de la fenetre principale (Root)
+
+
+taille_case = 20  # Chaque case fait 20x20 pixels
+nombre_cases_largeur = 20  # 20 cases en largeur
+nombre_cases_hauteur = 20  # 20 cases en hauteur
+largeur_canvas = nombre_cases_largeur * taille_case  # 400 pixels width
+hauteur_canvas = nombre_cases_hauteur * taille_case  # 400 pixels height
+
+def dessiner_grillage():
+    """Dessine le grillage de 20x20"""
+    # Lignes verticales
+    for colonne in range(0, largeur_canvas, taille_case):
+        canvas.create_line(colonne, 0, colonne, hauteur_canvas, fill='gray20')
+    
+    # Lignes horizontales
+    for ligne in range(0, hauteur_canvas, taille_case):
+        canvas.create_line(0, ligne, largeur_canvas, ligne, fill='gray20')
+
+# ============ DÉMARRAGE DU JEU ============
+
+# Créer la fenêtre
 fenetre = tk.Tk()
-fenetre.title("SNAKE")
-fenetre.geometry("800x600")
+fenetre.title("Snake")
+canvas = tk.Canvas(fenetre, width=largeur_canvas, height=hauteur_canvas, bg='black')
+canvas.pack()
+dessiner_grillage()
+fenetre.mainloop()
