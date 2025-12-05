@@ -11,7 +11,7 @@ def init_serpent() :
     """ Initialise le serpent au centre ( longueur 3) ."""
     centre = 10 # Pour une grille 20 x20
     return [( centre , centre ) , ( centre -1 , centre ) , ( centre -2 , centre ) ]
-# 1. Creation de la fenetre principale (Root)
+# Creation de la fenetre principale (Root)
 
 
 taille_case = 20  # Chaque case fait 20x20 pixels
