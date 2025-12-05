@@ -15,11 +15,13 @@ def init_serpent() :
 
 
 taille_case = 20  # Chaque case fait 20x20 pixels
-"""nombre_cases_largeur = 20  # 20 cases en largeur
-nombre_cases_hauteur = 20  # 20 cases en hauteur
-largeur_canvas = nombre_cases_largeur * taille_case  # 400 pixels width 
-hauteur_canvas = nombre_cases_hauteur * taille_case  # 400 pixels height 
-On peut quand même utitliser cette partie si on fait un niveau avec un taille de map différente"""
+"""
+    nombre_cases_largeur = 20  # 20 cases en largeur
+    nombre_cases_hauteur = 20  # 20 cases en hauteur
+    largeur_canvas = nombre_cases_largeur * taille_case  # 400 pixels width 
+    hauteur_canvas = nombre_cases_hauteur * taille_case  # 400 pixels height 
+    On peut quand même utitliser cette partie si on fait un niveau avec un taille de map différente
+"""
 nombre_cases = 20 #la grille étant un carré, il n'y a pas besoin de le faire pour chaque dimension
 taille_canvas = nombre_cases * taille_case # 400 pixels width
 
