@@ -1,6 +1,7 @@
 import random
 import tkinter as tk
 import time
+from logique import *
 # Directions : ( dx , dy )
 NORD = (0 , -1)
 SUD = (0 , 1)
