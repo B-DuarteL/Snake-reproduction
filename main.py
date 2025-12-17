@@ -7,11 +7,13 @@ NORD = (0 , -1)
 SUD = (0 , 1)
 EST = (1 , 0)
 OUEST = ( -1 , 0)
-direction = 'est'  # Direction initiale
+
+direction = EST  # Direction initiale
 pomme = None  # Position de la pomme
 taille_case = 20  # Chaque case fait 20x20 pixels
 nombre_cases = 20 #la grille étant un carré, il n'y a pas besoin de le faire pour chaque dimension
 taille_canvas = nombre_cases * taille_case # 400 pixels width
+serpent = []
 """
     nombre_cases_largeur = 20  # 20 cases en largeur
     nombre_cases_hauteur = 20  # 20 cases en hauteur
@@ -24,8 +26,8 @@ taille_canvas = nombre_cases * taille_case # 400 pixels width
 
 def init_serpent() :
     """ Initialise le serpent au centre ( longueur 3) ."""
-    centre = 10*20 # Pour une grille 20 x20 (10*la taille d'une CASE)
-    return [( centre , centre ) , ( centre -20 , centre ) , ( centre -40 , centre ) ]
+    centre = 10 # Pour une grille 20 x20 (10*la taille d'une CASE)
+    return [( centre , centre ) , ( centre -1 , centre ) , ( centre -2 , centre ) ]
 
 
 
@@ -40,10 +42,12 @@ def dessiner_grillage():
         canvas.create_line(0, ligne, taille_canvas, ligne, fill='gray20')
 
 def placer_pomme():
-    # Générer position aléatoire
-    x = random.randint(0, nombre_cases - 1) * taille_case
-    y = random.randint(0, nombre_cases - 1) * taille_case
-    return (x, y)
+    """Place une pomme à une position aléatoire (pas sur le serpent)."""
+    while True:
+        x = random.randint(0, nombre_cases - 1)
+        y = random.randint(0, nombre_cases - 1)
+        if (x, y) not in serpent:
+            return (x, y)
 
 def changer_direction(event):
     global direction
@@ -51,14 +55,27 @@ def changer_direction(event):
     touche = event.keysym
     
     # Empêcher les demi-tours (ne pas aller en sens inverse)
-    if touche == "Up" and direction != 'sud':
-        direction = 'nord'
-    elif touche == "Down" and direction != 'nord':
-        direction = 'sud'
-    elif touche == "Left" and direction != 'est':
-        direction = 'ouest'
-    elif touche == "Right" and direction != 'ouest':
-        direction = 'est'
+    if touche == "Up" and direction != SUD:
+        direction = NORD
+    elif touche == "Down" and direction != NORD:
+        direction = SUD
+    elif touche == "Left" and direction != EST:
+        direction = OUEST
+    elif touche == "Right" and direction != OUEST:
+        direction = EST
+
+def dessiner():
+    canvas.delete('serpent')
+    for x, y in serpent:
+        canvas.create_rectangle(
+            x * taille_case, 
+            y * taille_case, 
+            (x + 1) * taille_case, 
+            (y + 1) * taille_case, 
+            fill='green',
+            tags='serpent'
+        )
+
 
 # ============ DÉMARRAGE DU JEU ============
 
@@ -69,4 +86,8 @@ fenetre.bind("<Key>", changer_direction)
 canvas = tk.Canvas(fenetre, width=taille_canvas, height=taille_canvas, bg='black')
 canvas.pack()
 dessiner_grillage()
+
+serpent = init_serpent()
+dessiner()
+
 fenetre.mainloop()
