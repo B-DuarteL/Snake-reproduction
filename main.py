@@ -67,7 +67,7 @@ def changer_direction(event):
 def dessiner():
     canvas.delete('serpent')
     for x, y in serpent:
-        canvas.create_rectangle(
+        serpent = canvas.create_rectangle(
             x * taille_case, 
             y * taille_case, 
             (x + 1) * taille_case, 
