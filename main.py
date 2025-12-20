@@ -65,6 +65,10 @@ def changer_direction(event):
         direction = EST
 
 def dessiner():
+    """
+    Dessine le serpent et la pomme sur le canvas.
+    """
+    serpent = init_serpent()
     canvas.delete('serpent')
     for x, y in serpent:
         serpent = canvas.create_rectangle(
@@ -75,6 +79,19 @@ def dessiner():
             fill='green',
             tags='serpent'
         )
+    # Dessiner la pomme 
+    pomme = placer_pomme()
+    canvas.delete('pomme')
+    x_pomme, y_pomme = pomme
+    canvas.create_oval(
+        x_pomme * taille_case, 
+        y_pomme * taille_case, 
+        (x_pomme + 1) * taille_case, 
+        (y_pomme + 1) * taille_case, 
+        fill='red',
+        tags='pomme'
+    )
+
 
 
 # ============ DÉMARRAGE DU JEU ============
@@ -86,7 +103,6 @@ fenetre.bind("<Key>", changer_direction)
 canvas = tk.Canvas(fenetre, width=taille_canvas, height=taille_canvas, bg='black')
 canvas.pack()
 dessiner_grillage()
-
 serpent = init_serpent()
 dessiner()
 
