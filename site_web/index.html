@@ -7,15 +7,84 @@
     <title>Documentation Projet Snake</title>
 </head>
 <body>
+
     <header>
         <h1>Documentation 'Snake'</h1>
         <p>Voici la documentation du projet snake</p>
     </header>
+
     <main>
+
+        <h2>Présentation du projet</h2>
+        <p>
+        Le projet "Snake" est un jeu programmé en Python avec la bibliothèque Tkinter.
+        Le joueur contrôle un serpent qui se déplace sur une grille et doit manger des pommes
+        pour augmenter son score.
+        </p>
+
+        <h2>Origine</h2>
+
+        <p>Le jeu Snake a connu une évolution significative 
+            depuis ses débuts. Le concept de base a été développé 
+            par le jeu d'arcade Blockade en 1976, qui a été le précurseur 
+            des jeux de type "serpent". Le jeu a été intégré dans les téléphones 
+            Nokia dans les années 90, notamment le Nokia 6110 et le Nokia 3310, 
+            ce qui a permis à Snake d'atteindre un large public.  </p>
+
+        <h2>Principe du jeu :</h2>
+
+        <ul>
+            <li>Le joueur contrôle un serpent qui se déplace sur une grille.</li>
+            <li>Le but est de manger des pommes pour grandir et marquer des points.</li>
+            <li>Le jeu se termine si le serpent entre en collision avec les murs ou avec lui-même.</li>
+        </ul>
+
+        <h2>Fonctionnement :</h2>
+
+        <ul>
+            <li>Le serpent se déplace automatiquement.</li>
+            <li>Le joueur change la direction (haut / bas / gauche / droite).</li>
+            <li>La nourriture apparaît à une position aléatoire.</li>
+            <li>Chaque nourriture mangée : 
+                <ol>
+                    <li>augmente la taille du serpent</li>
+                    <li>augmente le score</li>
+                </ol>
+            </li>
+        </ul>
+
+        <h2>Représentation des données</h2>
+        <ul>
+            <li><strong>Serpent</strong> : liste de positions (x, y), la tête est le premier élément.</li>
+            <li>
+                <strong>Direction</strong> : couple (dx, dy) : 
+                    <ul>
+                        <li>NORD = (0, -1)</li>
+                        <li>SUD = (0, 1)</li>
+                        <li>EST = (1, 0)</li>
+                        <li>OUEST = (-1, 0)</li>
+                    </ul>
+            </li>
+            <li><strong>Score</strong> : nombre entier.</li>
+            <li><strong>Grille</strong> : canvas de 20x20 cases.</li>
+        </ul>
+
+        <h2>Déplacement du serpent</h2>
+        <p>
+            Le déplacement du serpent se fait en ajoutant une nouvelle tête dans la direction choisie.
+            Si le serpent n'a pas mangé de pomme, le dernier carré du serpent est supprimé afin de ne pas avoir 
+            un serpent qui grandit infiniment.
+        </p>
+
+        <h2>Gestion des collisions</h2>
+        <ul>
+            <li>Collision avec les murs : la tête sort de la grille.</li>
+            <li>Collision avec le corps : la tête touche une autre partie du serpent.</li>
+        </ul>
 
         <footer>
             <p>Tous droits réservés &copy;</p>
-            <p><strong>Lycée Sainte Ursule - [BARTHELEMY André et FORTIN Samuel]</strong></p>
+            <p><strong>Lycée Sainte Ursule - [BARTHELEMY André et FORTIN Samuel] </strong></p>
         </footer>
     </main>
 </body>
