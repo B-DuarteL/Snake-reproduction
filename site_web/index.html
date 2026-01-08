@@ -15,14 +15,14 @@
 
     <main>
 
-        <h2>Présentation du projet</h2>
+        <h2>Présentation du projet :</h2>
         <p>
         Le projet "Snake" est un jeu programmé en Python avec la bibliothèque Tkinter.
         Le joueur contrôle un serpent qui se déplace sur une grille et doit manger des pommes
         pour augmenter son score.
         </p>
 
-        <h2>Origine</h2>
+        <h2>Origine :</h2>
 
         <p>Le jeu Snake a connu une évolution significative 
             depuis ses débuts. Le concept de base a été développé 
@@ -42,6 +42,7 @@
         <h2>Fonctionnement :</h2>
 
         <ul>
+            <li>Le serpent est initialisé au centre de la grille.</li>
             <li>Le serpent se déplace automatiquement.</li>
             <li>Le joueur change la direction (haut / bas / gauche / droite).</li>
             <li>La nourriture apparaît à une position aléatoire.</li>
@@ -52,10 +53,19 @@
                 </ol>
             </li>
         </ul>
+        <h2>Commandes du jeu :</h2>
+        <ul>
+            <li><strong>Flèche du haut</strong> : aller vers le haut</li>
+            <li><strong>Flèche du bas</strong> : aller vers le bas</li>
+            <li><strong>Flèche de gauche</strong> : aller à gauche</li>
+            <li><strong>Flèche de droite</strong> : aller à droite</li>
+            <li><strong>Espace</strong> : mettre en pause / reprendre</li>
+        </ul>
 
-        <h2>Représentation des données</h2>
+        <h2>Représentation des données :</h2>
         <ul>
             <li><strong>Serpent</strong> : liste de positions (x, y), la tête est le premier élément.</li>
+
             <li>
                 <strong>Direction</strong> : couple (dx, dy) : 
                     <ul>
@@ -65,18 +75,19 @@
                         <li>OUEST = (-1, 0)</li>
                     </ul>
             </li>
+
             <li><strong>Score</strong> : nombre entier.</li>
             <li><strong>Grille</strong> : canvas de 20x20 cases.</li>
         </ul>
 
-        <h2>Déplacement du serpent</h2>
+        <h2>Déplacement du serpent :</h2>
         <p>
             Le déplacement du serpent se fait en ajoutant une nouvelle tête dans la direction choisie.
             Si le serpent n'a pas mangé de pomme, le dernier carré du serpent est supprimé afin de ne pas avoir 
             un serpent qui grandit infiniment.
         </p>
 
-        <h2>Gestion des collisions</h2>
+        <h2>Gestion des collisions :</h2>
         <ul>
             <li>Collision avec les murs : la tête sort de la grille.</li>
             <li>Collision avec le corps : la tête touche une autre partie du serpent.</li>
@@ -85,7 +96,7 @@
         <h2>Images :</h2>
         <img src="image1.png" alt="Photo du jeu snake">
         <img src="image.png" alt="Photo du jeu snake">
-
+        
         <footer>
             <p>Tous droits réservés &copy;</p>
             <p><strong>Lycée Sainte Ursule - [BARTHELEMY André et FORTIN Samuel] </strong></p>
