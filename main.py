@@ -41,9 +41,11 @@ def pause():
     
     if jeu_en_cours:
         jeu_en_cours = False
+        #change le nom du bouton quand le jeu est en pause
         bouton_pause.config(text="Reprendre")
     else:
         jeu_en_cours = True
+        #change le nom du bouton quand le jeu est en cours
         bouton_pause.config(text="Mettre en Pause")
         boucle_jeu()
 
@@ -57,15 +59,19 @@ def placer_pomme():
 
 def dessiner_grillage():
     """Dessine le grillage de 20x20"""
-    for colonne in range(0, taille_canvas + 1, taille_case):
+    for colonne in range(0, taille_canvas + 1, taille_case):# création d'une colonne qui commence à 0 avance de tout les 20 pixels jusqu'à la taille maximum du canvas
         canvas.create_line(
             colonne, 0, colonne, taille_canvas, fill='gray20'
             )
     
-    for ligne in range(0, taille_canvas + 1, taille_case):
+    for ligne in range(0, taille_canvas + 1, taille_case):# création d'une ligne qui commence à 0 avance de tout les 20 pixels jusqu'à la taille maximum du canvas
         canvas.create_line(
-            0, ligne, taille_canvas, ligne, fill='gray20'
-            )
+            0,              # x du point de départ bord gauche du canvas
+            ligne,          # y du point de départ 
+            taille_canvas,  # x du point d’arrivée bord droit du canvas
+            ligne,          # y du point d’arrivée   
+            fill='gray20'   # couleur de la ligne (gris foncé)
+        )   
 
 def dessiner():
     """Dessine le serpent et la pomme sur le canvas."""
@@ -175,7 +181,7 @@ def game_over():
     
     # Message de Game Over
     messagebox.showinfo(
-        "Game Over",
+        "Game Over", #Titre de la fenetre
         f"Partie terminée !\n\nScore : {score}\nMeilleur score : {meilleur_score}"
     )
 
