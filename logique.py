@@ -4,30 +4,14 @@ SUD = (0, 1)
 EST = (1, 0)
 OUEST = (-1, 0)
 
-def init_serpent():
+def init_serpent(nombre_cases=20):
     """Initialise le serpent au centre avec 3 segments."""
-    centre = 10
+    centre = nombre_cases // 2
     return [(centre, centre), (centre - 1, centre), (centre - 2, centre)]
 
-def deplacer_serpent(serpent, direction, a_mange):
-    """Déplace le serpent dans la direction donnée."""
-    tete_x, tete_y = serpent[0]
-    dx, dy = direction
-    
-    nouvelle_tete = (tete_x + dx, tete_y + dy)
-    
-    # remplace le premier element par tete
-    serpent.insert(0, nouvelle_tete)
-    
-    # Retirer la queue si le serpent n'a pas mangé de pomme (empeche le serpent d'etre infini)
-    if not a_mange:
-        serpent.pop()
-    
-    return serpent
-
-def collision_mur(serpent):
+def collision_mur(serpent, nombre_cases=20):
     """Vérifie si la tête sort de la grille 20x20."""
-    return serpent[0][0] < 0 or serpent[0][0] >= 20 or serpent[0][1] < 0 or serpent[0][1] >= 20
+    return serpent[0][0] < 0 or serpent[0][0] >= nombre_cases or serpent[0][1] < 0 or serpent[0][1] >= nombre_cases
 
 def collision_soi_meme(serpent):
     """Vérifie si la tête touche le corps."""

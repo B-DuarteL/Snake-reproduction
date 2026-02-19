@@ -10,9 +10,9 @@ OUEST = (-1, 0)
 direction = EST
 prochaine_direction = EST
 pomme = None
-taille_case = 20
 nombre_cases = 20
-taille_canvas = nombre_cases * taille_case
+taille_canvas = 500
+taille_case = taille_canvas // nombre_cases
 serpent = []
 score = 0
 meilleur_score = 0
@@ -132,11 +132,7 @@ def boucle_jeu():
     
     serpent = deplacer_serpent(serpent, direction, a_mange)
     
-    if collision_soi_meme(serpent):
-        game_over()
-        return
-    
-    elif collision_mur(serpent):
+    if collision_soi_meme(serpent) or collision_mur(serpent, nombre_cases):
         game_over()
         return
     
@@ -156,7 +152,7 @@ def nouvelle_partie():
     """Démarre une nouvelle partie."""
     global serpent, direction, prochaine_direction, pomme, score, jeu_en_cours
     
-    serpent = init_serpent()
+    serpent = init_serpent(nombre_cases)
     direction = EST
     prochaine_direction = EST
     pomme = placer_pomme()
@@ -187,6 +183,7 @@ def game_over():
 
 
 fenetre = tk.Tk()
+fenetre.configure(bg='black')
 fenetre.title("Jeu du Serpent - Snake")
 fenetre.resizable(False, False)
 
@@ -247,7 +244,7 @@ bouton_pause = tk.Button(
 bouton_nouvelle.pack(side=tk.LEFT, padx=10, pady=10)
 bouton_pause.pack(side=tk.LEFT, padx=10, pady=10)
 fenetre.bind("<Key>", changer_direction)
-serpent = init_serpent()
+serpent = init_serpent(nombre_cases)
 pomme = placer_pomme()
 dessiner()
 fenetre.mainloop()
